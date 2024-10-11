@@ -11,6 +11,8 @@ export class QuizResultComponent implements OnInit {
   timeTaken: number;
   correctAnswers: number;
   totalQuestions: number;
+  questions: any[];
+  userAnswers: string[];
 
   constructor(private route: ActivatedRoute) {}
 
@@ -20,5 +22,7 @@ export class QuizResultComponent implements OnInit {
     this.timeTaken = state.timeTaken;
     this.correctAnswers = state.correctAnswers;
     this.totalQuestions = state.totalQuestions;
+    this.questions = state.questions;
+    this.userAnswers = state.userAnswers;
   }
 }

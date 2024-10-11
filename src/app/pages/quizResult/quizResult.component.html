@@ -1,10 +1,28 @@
-<div class="bg-white pb-8">
-  <div class="pb-8 pt-6">
-    <div class = "container-fluid">
+<div class="bg-offwhite pb-8">
+  <div class="header pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
       <div class="result-container">
-        <h1>{{ quizName }}</h1>
+        <div class="header-info">
+          <h1>{{ quizName }}</h1>
+          <p class="correct-answers font-weight-bold">Score: {{ correctAnswers }} / {{ totalQuestions }}</p>
+        </div>
         <p>Time Taken: {{ timeTaken }} seconds</p>
-        <p>Correct Answers: {{ correctAnswers }} / {{ totalQuestions }}</p>
+
+        <hr class="solid mt-0 mb-2">  
+        
+        <div *ngFor="let question of questions; let i = index" class="question-block">
+          <h3>Question {{ i + 1 }}: {{ question.question }}</h3>
+          <p class="question-info">Category: {{ question.category }}, Difficulty: {{ question.difficulty }}</p>
+          <div *ngFor="let answer of question.incorrect_answers.concat(question.correct_answer)" class="answer-choice">
+            <div [ngClass]="{
+              'correct-answer': answer === question.correct_answer,
+              'user-correct': answer === userAnswers[i] && answer === question.correct_answer,
+              'user-incorrect': answer === userAnswers[i] && answer !== question.correct_answer
+            }">
+              {{ answer }}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

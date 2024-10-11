@@ -61,7 +61,9 @@ export class QuizPageComponent implements OnInit {
         quizName: this.quizName,
         timeTaken,
         correctAnswers,
-        totalQuestions: this.quizData.results.length
+        totalQuestions: this.quizData.results.length,
+        questions: this.quizData.results,
+        userAnswers: this.userAnswers
       }
     });
   }
