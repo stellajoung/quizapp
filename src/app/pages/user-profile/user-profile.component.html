@@ -1,0 +1,72 @@
+<div class="bg-gradient-blue pb-8">
+  <div class="header pb-8 pt-5 pt-md-8">
+    <div class = "container-fluid">
+      <h3>Create Quiz Form</h3>
+
+      <form #quizForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <!--
+        {{quizForm.value | json}}
+        <hr />
+        {{createQuizForm | json}}
+        -->
+        <p *ngFor="let msg of categories | async">{{msg}}</p> 
+
+        <div class = "quizName">
+          <label>Name of Quiz</label>
+          <input type="text" required #name="ngModel" 
+          [class.is-invalid]="name.invalid && name.touched" 
+          class="form-control" name="quizName" [(ngModel)]="createQuizForm.quizName">
+          <small class="text-danger" [class.d-none]="name.valid || name.untouched">Quiz name is required</small>
+        </div>
+
+        <div class="form-group">
+          <label>Number of Questions:</label>
+          <input 
+            type="number" 
+            class="form-control" 
+            name="numOfQuestions" 
+            [(ngModel)]="createQuizForm.numOfQuestions" 
+            min="1" 
+            max="50" 
+            required
+            #numOfQuestions="ngModel" 
+          >
+          <div *ngIf="numOfQuestions.invalid && (numOfQuestions.dirty || numOfQuestions.touched)" class="text-danger">
+            <div *ngIf="numOfQuestions.errors?.required">Number of questions is required.</div>
+            <div *ngIf="numOfQuestions.errors?.min || numOfQuestions.errors?.max">Number must be between 1 and 50.</div>
+          </div>
+        </div>
+        
+
+        <div class = "form-group">
+          <label>Select Category:</label>
+          <select class="custom-select" name="Category" [(ngModel)]="createQuizForm.category">
+            <option [ngValue]="null">Any Category</option>
+            <option *ngFor="let category of categories.trivia_categories" [ngValue]="category.id">{{ category.name }}</option>
+          </select>
+                
+        </div>
+
+        <div class = "form-group">
+          <label>Select Difficulty:</label>
+          <select class = "custom-select" name="Difficulty" [(ngModel)]="createQuizForm.difficulty">
+            <option selected>Any Difficulty</option>
+            <option *ngFor="let difficulty of difficulties" [value]="difficulty">{{difficulty}}</option>
+          </select>
+        </div>
+
+        <div class = "form-group">
+          <label>Select Type:</label>
+          <select class = "custom-select" name="Type" [(ngModel)]="createQuizForm.type">
+            <option selected>Any Type</option>
+            <option *ngFor="let type of types" [value]="type">{{type}}</option>
+          </select>
+        </div>
+
+        <button [disabled]="quizForm.form.invalid" class = "btn btn-primary" type="submit">Submit form</button>
+
+      </form>
+    </div>
+
+  </div>
+</div>
