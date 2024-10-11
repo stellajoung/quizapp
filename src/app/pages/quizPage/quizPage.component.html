@@ -1,0 +1,14 @@
+<div class="bg-gradient-blue pb-8">
+  <div class="header pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div *ngIf="quizData">
+        <h1>Quiz Data</h1>
+        <pre>{{ quizData | json }}</pre>
+      </div>
+      <div *ngIf="!quizData">
+        <p>No quiz data available.</p>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { DataTransferService } from '../../data-transfer.service';
 import { QuizServiceService } from '../../quiz-service.service';
 import { lastValueFrom } from 'rxjs';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,14 +17,30 @@ export class UserProfileComponent{
 
   createQuizForm = new createQuiz('', 1, 'Any Category', 'Any Difficulty', 'Any Type'); //prefil data - randomly generate quiz name
 
-  constructor(private dataTransferService: DataTransferService, private quizService: QuizServiceService) {  }
+  constructor(private dataTransferService: DataTransferService, private quizService: QuizServiceService, private router: Router) {  }
   ngOnInit() {
 
 
   }
 
-  
-  
+  onSubmit() {
+    const data = this.createQuizForm;
+    this.dataTransferService.changeData(data);
+
+    this.quizService.fetchQuestions().subscribe(
+      (response: any) => {
+        console.log('API Response:', response);
+        console.log('Navigating to quizPage with data:', response); // Debug log
+        this.router.navigate(['/quizPage'], { 
+          state: { quizData: response }
+        });
+      },
+      (error) => {
+        console.error('Error fetching categories:', error);
+      }
+    );
+  }
+
   // This function runs after categories are fetched
   onCategoriesLoaded() {
     console.log('Categories after fetch:', this.categories);
@@ -31,22 +48,8 @@ export class UserProfileComponent{
     // Perform any actions dependent on categories here
   }
 
-
-  onSubmit( ){
-    const data = this.createQuizForm;
-    this.dataTransferService.changeData(data);
-
-    console.log(this.quizService.apiURL());
-    this.quizService.fetchQuestions().subscribe(
-      (response: any) => {
-        console.log('API Response:', response);
-      },
-      (error) => {
-        console.error('Error fetching categories:', error);
-      }
-    );
-  }
-} 
+  // Remove the passQuizData method if it's not used elsewhere
+}
 
 export class createQuiz {
   constructor(

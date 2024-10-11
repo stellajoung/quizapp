@@ -10,6 +10,8 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { MyquizzesComponent } from '../../pages/myquizzes/myquizzes.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
+import { QuizPageComponent } from '../../pages/quizPage/quizPage.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -22,6 +24,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     ClipboardModule,
   ],
-  declarations: [DashboardComponent, MyquizzesComponent, UserProfileComponent],
+  declarations: [DashboardComponent, MyquizzesComponent, UserProfileComponent, QuizPageComponent],
 })
 export class AdminLayoutModule {}
