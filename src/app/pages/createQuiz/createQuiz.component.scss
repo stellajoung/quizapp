@@ -1,0 +1,28 @@
+label {
+    color: rgb(61, 61, 61);
+    font-size: 14px;
+  }
+
+p.normal {
+  font-weight: normal;
+}
+
+p.thick {
+  font-weight: bold;
+}
+
+p.thicker {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+input {
+  border-radius: 10px;
+  border: 0.01em solid rgb(133, 133, 133);
+
+}
+
+select{
+  border-radius: 10px;
+  border: 0.01em solid rgb(133, 133, 133);
+}

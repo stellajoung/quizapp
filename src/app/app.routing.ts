@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { QuizPageComponent } from './pages/quizPage/quizPage.component';
+import { QuizResultComponent } from './pages/quizResult/quizResult.component';
+import { CreateQuizComponent } from './pages/createQuiz/createQuiz.component';
 
 const routes: Routes =[
   {
@@ -31,12 +33,16 @@ const routes: Routes =[
       }
     ]
   }, {
-    path: 'quizPage',
-    component: QuizPageComponent
-  }, {
-    path: '**',
-    redirectTo: 'dashboard'
-  }
+    path: 'quiz',
+    component: AdminLayoutComponent,
+    children: [
+      { path: 'create', component: CreateQuizComponent },
+      { path: 'page', component: QuizPageComponent },
+      { path: 'result', component: QuizResultComponent }
+    ]
+  },
+  { path: '', redirectTo: '/quiz/create', pathMatch: 'full' },
+  { path: '**', redirectTo: '/quiz/create' }
 ];
 
 @NgModule({

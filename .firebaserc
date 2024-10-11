@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "quizapp-440ea": {
+      "hosting": {
+        "quizapp": [
+          "quizapp-440ea"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "quizapp-440ea"
+  }
+}

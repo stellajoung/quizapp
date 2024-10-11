@@ -1,5 +1,5 @@
 <nav
-  class="navbar navbar-vertical navbar-expand-md navbar-light bg-white"
+  class="navbar navbar-vertical navbar-expand-md navbar-light bg-gradient-blue"
   id="sidenav-main"
 >
   <div class="container-fluid">
@@ -44,7 +44,7 @@
           </div>
           <a
             routerLinkActive="active"
-            [routerLink]="['/user-profile']"
+            [routerLink]="['/createQuiz']"
             class="dropdown-item"
           >
             <i class="ni ni-single-02"></i>
@@ -52,7 +52,7 @@
           </a>
           <a
             routerLinkActive="active"
-            [routerLink]="['/user-profile']"
+            [routerLink]="['/createQuiz']"
             class="dropdown-item"
           >
             <i class="ni ni-settings-gear-65"></i>
@@ -60,7 +60,7 @@
           </a>
           <a
             routerLinkActive="active"
-            [routerLink]="['/user-profile']"
+            [routerLink]="['/createQuiz']"
             class="dropdown-item"
           >
             <i class="ni ni-calendar-grid-58"></i>
@@ -68,7 +68,7 @@
           </a>
           <a
             routerLinkActive="active"
-            [routerLink]="['/user-profile']"
+            [routerLink]="['/createQuiz']"
             class="dropdown-item"
           >
             <i class="ni ni-support-16"></i>
@@ -133,7 +133,7 @@
           <a
             routerLinkActive="active"
             [routerLink]="[menuItem.path]"
-            class="nav-link"
+            class="nav-link text-white"
           >
             <i class="ni {{ menuItem.icon }}"></i>
             {{ menuItem.title }}

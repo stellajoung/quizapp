@@ -1,9 +1,29 @@
-<div class="bg-gradient-blue pb-8">
+<div class="bg-white pb-8">
   <div class="header pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
       <div *ngIf="quizData">
-        <h1>Quiz Data</h1>
+        <!--
         <pre>{{ quizData | json }}</pre>
+        -->
+        <h1> {{ quizName }} </h1>
+        <h1> {{ this.time }} </h1>
+        <div *ngIf="quizData.results.length > 0">
+          <div *ngIf="currentQuestionIndex < quizData.results.length">
+            <h2>{{ quizData.results[currentQuestionIndex].question }}</h2>
+            <div *ngFor="let answer of quizData.results[currentQuestionIndex].incorrect_answers.concat(quizData.results[currentQuestionIndex].correct_answer)">
+              <button class="answerchoices"
+                [ngClass]="{'selected': selectedAnswer === answer}" 
+                (click)="selectAnswer(answer)">
+                {{ answer }}
+              </button>
+            </div>
+            <button class="submitbutton mt-8"
+              [disabled]="!selectedAnswer" 
+              (click)="nextQuestion()">
+              {{ currentQuestionIndex < quizData.results.length - 1 ? 'Next Question' : 'Submit Quiz' }}
+            </button>
+          </div>
+        </div>
       </div>
       <div *ngIf="!quizData">
         <p>No quiz data available.</p>
