@@ -1,5 +1,7 @@
 # QUIZAPP
 
+A web quiz app that fetches questions and answers from [Open Trivia DB] (https://opentdb.com/). The data passed on from the API including number of questions, category, difficulty, type as well as user input gets stored onto a Firebase's Firestore database. 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.10.
 
 ## Development server
