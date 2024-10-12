@@ -1,4 +1,4 @@
-<div class="bg-offwhite pb-8">
+
   <div class="header pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
       <div class="result-container">
@@ -9,7 +9,7 @@
         <p>Time Taken: {{ timeTaken }} seconds</p>
 
         <hr class="solid mt-0 mb-2">  
-        
+
         <div *ngFor="let question of questions; let i = index" class="question-block">
           <h3>Question {{ i + 1 }}: {{ question.question }}</h3>
           <p class="question-info">Category: {{ question.category }}, Difficulty: {{ question.difficulty }}</p>
@@ -23,7 +23,23 @@
             </div>
           </div>
         </div>
+
+        <div *ngIf="fromMyQuizzes">
+          <button (click)="returnToMyQuizzes()" class="btn btn-secondary mt-4">Return to My Quizzes</button>
+        </div>
+
+        <div *ngIf="!fromMyQuizzes && isUserLoggedIn">
+          <button (click)="saveQuizResult()" class="btn btn-primary mt-4">Save Result</button>
+        </div>
+
+        <div *ngIf="!fromMyQuizzes && !isUserLoggedIn">
+          <p class="mt-4">
+            <a routerLink="/login" class="text-blue font-weight-bold">Sign in</a> /
+            <a routerLink="/register" class="text-blue font-weight-bold">Register</a>
+            <span> to save your results!</span>
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+

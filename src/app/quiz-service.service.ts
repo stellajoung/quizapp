@@ -34,7 +34,7 @@ export class QuizServiceService {
     this.difficulty = this.receivedData['difficulty'];
     this.type = this.receivedData['type'];
 
-    return `https://opentdb.com/api.php?amount=${this.amount}${this.category !== "Any Category" ? `&category=${this.category}` : ""}${this.difficulty !== "Any Difficulty" ? `&difficulty=${this.difficulty}` : ""}${this.type !== "Any Type" ? `&type=${this.type}` : ""}`
+    return `https://opentdb.com/api.php?amount=${this.amount}${this.category !== "Any Category" ? `&category=${this.category}` : ""}${this.difficulty !== "Any Difficulty" ? `&difficulty=${this.difficulty}` : ""}${this.type !== "Any Type" ? `&type=${this.type}` : ""}&encode=url3986`
 
   }
 

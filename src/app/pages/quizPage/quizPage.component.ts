@@ -19,13 +19,23 @@ export class QuizPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.quizData = history.state.quizData;
-    this.quizName = history.state.quizName
+    this.quizName = history.state.quizName;
+    this.decodeQuizData(); // Decode the quiz data
     this.startTime = Date.now();
     setInterval(() => {
       this.computeTime(); 
     }, 1000);
   }
 
+  decodeQuizData() {
+    this.quizData.results = this.quizData.results.map(question => ({
+      ...question,
+      question: decodeURIComponent(question.question),
+      correct_answer: decodeURIComponent(question.correct_answer),
+      incorrect_answers: question.incorrect_answers.map(answer => decodeURIComponent(answer)),
+      category: decodeURIComponent(question.category) // Decode the category
+    }));
+  }
 
   selectAnswer(answer: string) {
     this.selectedAnswer = answer;
@@ -68,4 +78,3 @@ export class QuizPageComponent implements OnInit {
     });
   }
 }
-

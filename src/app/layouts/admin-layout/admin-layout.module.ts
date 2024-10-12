@@ -7,10 +7,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClipboardModule } from 'ngx-clipboard';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
-import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { MyquizzesComponent } from '../../pages/myquizzes/myquizzes.component';
 import { CreateQuizComponent } from '../../pages/createQuiz/createQuiz.component';
 import { QuizPageComponent } from '../../pages/quizPage/quizPage.component';
+import { RegisterComponent } from '../../pages/register/register.component';
+import { LoginComponent } from '../../pages/login/login.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { ToastrModule } from 'ngx-toastr';
@@ -20,15 +21,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
     ClipboardModule,
   ],
   declarations: [
-    DashboardComponent,
     MyquizzesComponent,
     CreateQuizComponent,
-    QuizPageComponent
+    QuizPageComponent,
+    RegisterComponent,
+    LoginComponent
   ],
 })
 export class AdminLayoutModule {}

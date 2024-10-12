@@ -1,5 +1,31 @@
+.quiz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+p.thicker {
+  font-weight: 900;
+  font-size: 20px;
+}
+.quiz-info {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: flex-start; /* Align items to the start */
+  margin-left: 20px; /* Space between title and info */
+}
 
-.answerchoices{
+.elapsed-time {
+  font-size: 0.8rem; /* Small font size */
+  color: #405cf5; /* Blue color */
+}
+
+.question-progress {
+  font-size: 0.8rem; /* Small font size */
+  color: gray; /* Gray color for distinction */
+  margin-top: 2px; /* Small margin for separation */
+}
+
+.answerchoices {
   appearance: button;
   backface-visibility: hidden;
   background-color: #ffffff00;
@@ -28,7 +54,7 @@
   width: 100%;
 }
 
-.submitbutton{
+.submitbutton {
   appearance: button;
   backface-visibility: hidden;
   background-color: #405cf5;
@@ -37,16 +63,15 @@
   box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
   color: #fff;
   cursor: pointer;
-  width: 100px;
+  width: 200px;
   font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
   font-size: 100%;
-  height: 44px;
+  height: 50px;
   line-height: 1.15;
   margin: 12px 0 0;
   outline: none;
   overflow: hidden;
   padding: 0 25px;
-  position: relative;
   text-align: center;
   text-transform: none;
   transform: translateZ(0);
@@ -54,9 +79,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 100%;
 }
-
 
 button:disabled {
   cursor: default;
@@ -66,5 +89,4 @@ button:focus {
   box-shadow: rgba(118, 136, 236, .1) 0 0 0 1px inset, rgba(118, 136, 236, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(118, 136, 236, .3) 0 0 0 4px;
   background-color: rgb(118, 136, 236);
   color: white;
-
 }

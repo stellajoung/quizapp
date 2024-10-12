@@ -46,8 +46,26 @@ export class RegisterComponent implements OnInit {
         email,
         uid: userCredential.user.uid
       });
+
+      // Create a quiz_history collection with a dummy document named "dummy"
+      await this.firestore.collection('users').doc(userCredential.user.uid)
+        .collection('quiz_history').doc('dummy').set({
+          completedTime: null,
+          score: 0,
+          questions: [
+            {
+              question: 'Sample Question?',
+              difficulty: 'easy',
+              category: 'Sample Category',
+              correctAnswer: 'Correct Answer',
+              wrongAnswers: ['Wrong Answer 1', 'Wrong Answer 2', 'Wrong Answer 3'],
+              userAnswer: null
+            }
+          ]
+        });
+
       this.showSuccessMessage();
-      this.router.navigate(['/dashboard']); // Redirect to Dashboard
+      this.router.navigate(['/createQuiz']); // Redirect to Dashboard
     } catch (error) {
       this.errorMessage = error.message;
     }
@@ -65,9 +83,26 @@ export class RegisterComponent implements OnInit {
           email: userCredential.user.email,
           uid: userCredential.user.uid
         });
+
+        // Create a quiz_history collection with a dummy document named "dummy"
+        await userDoc.collection('quiz_history').doc('dummy').set({
+          completedTime: null,
+          score: 0,
+          questions: [
+            {
+              question: 'Sample Question?',
+              difficulty: 'easy',
+              category: 'Sample Category',
+              correctAnswer: 'Correct Answer',
+              wrongAnswers: ['Wrong Answer 1', 'Wrong Answer 2', 'Wrong Answer 3'],
+              userAnswer: null
+            }
+          ]
+        });
       }
+
       this.showSuccessMessage();
-      this.router.navigate(['/dashboard']); // Redirect to Dashboard
+      this.router.navigate(['/createQuiz']); // Redirect to Dashboard
     } catch (error) {
       this.errorMessage = error.message;
     }

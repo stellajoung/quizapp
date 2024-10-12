@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     try {
       await this.afAuth.signInWithEmailAndPassword(email, password);
       this.showSuccessMessage('Successfully logged in!');
-      this.router.navigate(['/dashboard']); // Redirect to Dashboard
+      this.router.navigate(['/createQuiz']); // Redirect to Dashboard
     } catch (error) {
       this.errorMessage = error.message;
     }
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       await this.afAuth.signInWithPopup(new GoogleAuthProvider());
       this.showSuccessMessage('Successfully logged in with Google!');
       console.log('Successfully logged in with Google!');
-      this.router.navigate(['/dashboard']); // Redirect to Dashboard
+      this.router.navigate(['/createQuiz']); // Redirect to Dashboard
     } catch (error) {
       this.errorMessage = error.message;
     }

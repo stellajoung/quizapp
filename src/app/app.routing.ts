@@ -12,7 +12,7 @@ import { CreateQuizComponent } from './pages/createQuiz/createQuiz.component';
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'createQuiz',
     pathMatch: 'full',
   }, {
     path: '',

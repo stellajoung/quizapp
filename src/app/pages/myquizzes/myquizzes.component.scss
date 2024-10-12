@@ -1,0 +1,76 @@
+.carousel-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  margin-top: 0; /* Reduce top margin */
+  margin-bottom: 40px; /* Increase bottom margin for more space */
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 10px 10px 40px; /* Add more padding to the left */
+}
+
+.table-responsive {
+    background-color: white; /* Ensure white background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add drop shadow */
+    border-radius: 8px; /* Optional: add rounded corners */
+  }
+  
+.card {
+  flex: 0 0 auto;
+  width: 250px; /* Adjust width as needed */
+  margin-right: 15px;
+  cursor: pointer; /* Indicate that the card is clickable */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+
+  &:hover {
+    border: 2px solid blue; /* Change border to blue on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: white;
+  border: none;
+  color: black;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-control-prev {
+  left: 20px; /* Increase the left position */
+}
+
+.carousel-control-next {
+  right: 20px; /* Increase the right position */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.carousel-control-prev-icon::before {
+  content: '<';
+}
+
+.carousel-control-next-icon::before {
+  content: '>';
+}

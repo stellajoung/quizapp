@@ -10,9 +10,8 @@ declare interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-  { path: '/dashboard', title: 'Dashboard', icon: 'ni-tv-2 text-green', class: '' },
-  { path: '/myquizzes', title: 'My Quizzes', icon: 'ni-planet text-red', class: '' },
   { path: '/createQuiz', title: 'Take quiz', icon: 'ni-single-copy-04 text-yellow', class: '' },
+  { path: '/myquizzes', title: 'My Quizzes', icon: 'ni-planet text-red', class: '' },
   { path: '/login', title: 'Login', icon: 'ni-key-25 text-info', class: '' },
   { path: '/register', title: 'Register', icon: 'ni-circle-08 text-pink', class: '' }
 ];
@@ -46,16 +45,14 @@ export class SidebarComponent implements OnInit {
 
     if (this.isAuthenticated) {
       this.menuItems = [
-        { path: '/dashboard', title: 'Dashboard', icon: 'ni-tv-2 text-green', class: '' },
-        { path: '/myquizzes', title: 'My Quizzes', icon: 'ni-planet text-red', class: '' },
         { path: '/createQuiz', title: 'Take quiz', icon: 'ni-single-copy-04 text-yellow', class: '' },
+        { path: '/myquizzes', title: 'My Quizzes', icon: 'ni-planet text-red', class: '' },
         { path: '/logout', title: 'Sign out', icon: 'ni-user-run text-info', class: '' }
       ];
     } else {
       this.menuItems = [
-        { path: '/dashboard', title: 'Dashboard', icon: 'ni-tv-2 text-green', class: '' },
-        { path: '/myquizzes', title: 'My Quizzes', icon: 'ni-planet text-red', class: '' },
         { path: '/createQuiz', title: 'Take quiz', icon: 'ni-single-copy-04 text-yellow', class: '' },
+        { path: '/myquizzes', title: 'My Quizzes', icon: 'ni-planet text-red', class: '' },
         { path: '/login', title: 'Login', icon: 'ni-key-25 text-info', class: '' },
         { path: '/register', title: 'Register', icon: 'ni-circle-08 text-pink', class: '' }
       ];
@@ -64,7 +61,7 @@ export class SidebarComponent implements OnInit {
 
   logout() {
     this.afAuth.signOut().then(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/createQuiz']); // Redirect to createQuiz page
     });
   }
 }

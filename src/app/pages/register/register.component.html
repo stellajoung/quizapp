@@ -1,4 +1,4 @@
-<div class="bg-gradient-blue">
+
   <div class="header pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
       <div class="row justify-content-center">
@@ -6,14 +6,8 @@
           <div class="card bg-secondary shadow border-0">
             
             <div class="card-body mt-30 py-lg-5">
-              <div class="text-center">
-                <button (click)="registerWithGoogle()" class="btn btn-neutral btn-icon">
-                  <span class="btn-inner--icon"><img src="assets/img/icons/common/google.svg"></span>
-                  <span class="btn-inner--text">Sign up with Google</span>
-                </button>
-              </div>
               <div class="text-center text-muted mb-4">
-                <small>Or sign up with credentials</small>
+                <h3>Sign up with credentials</h3>
               </div>
               <form [formGroup]="registerForm" (ngSubmit)="registerWithEmail()">
                 <div class="form-group">
@@ -40,13 +34,12 @@
                     <input class="form-control" placeholder="Password" formControlName="password" type="password">
                   </div>
                 </div>
-                <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
                 <div class="row my-4">
                   <div class="col-12">
                     <div class="custom-control custom-control-alternative custom-checkbox">
                       <input class="custom-control-input" id="customCheckRegister" formControlName="agree" type="checkbox">
                       <label class="custom-control-label" for="customCheckRegister">
-                        <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+                        <span class="text-muted">I agree with the <a href="#! ">Privacy Policy</a></span>
                       </label>
                     </div>
                   </div>
@@ -56,11 +49,18 @@
                 </div>
                 <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
               </form>
-              
+              <div class="text-center text-muted mt-3 mb-3">
+                <small>or</small>
+              </div>
+              <div class="text-center">
+                <button (click)="registerWithGoogle()" class="btn btn-neutral btn-icon">
+                  <span class="btn-inner--icon"><img src="assets/img/icons/common/google.svg"></span>
+                  <span class="btn-inner--text">Sign up with Google</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>

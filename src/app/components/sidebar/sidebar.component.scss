@@ -1,0 +1,19 @@
+#sidenav-main {
+  border-top-right-radius: 10px; /* Rounded top-right corner */
+  border-bottom-right-radius: 10px; /* Rounded bottom-right corner */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Drop shadow */
+  overflow: hidden; /* Ensure content doesn't overflow the rounded corners */
+}
+
+.navbar {
+  background-color: #f8f9fa; /* Optional: change background color */
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #333; /* Optional: change text color */
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  background-color: #93a0ed; /* Optional: change active link background */
+}
+
