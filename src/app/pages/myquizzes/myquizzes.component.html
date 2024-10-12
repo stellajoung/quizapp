@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="header-body">
       <div *ngIf="isUserLoggedIn; else signInPrompt">
-        <!-- Quiz History Carousel -->
+        <!-- Quiz History -->
         <div class="row">
           <div class="col-12">
             <div class="carousel-container">
@@ -36,6 +36,7 @@
         </div>
 
         <!-- Top 5 Scoring Quizzes Table -->
+      <div class="tableMain">
         <div class="card-header border-0">
           <h3 class="mb-0">Top 5 Scoring Quizzes</h3>
         </div>
@@ -59,6 +60,7 @@
             </tbody>
           </table>
         </div>
+      </div>
       </div>
       <ng-template #signInPrompt>
         <div class="text-center py-5">
