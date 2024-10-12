@@ -126,11 +126,9 @@
       </form>
       <!-- Navigation -->
       <ul class="navbar-nav">
-        <li
-          *ngFor="let menuItem of menuItems"
-          class="{{ menuItem.class }} nav-item"
-        >
+        <li *ngFor="let menuItem of menuItems" class="{{ menuItem.class }} nav-item">
           <a
+            *ngIf="menuItem.path !== '/logout'; else logoutLink"
             routerLinkActive="active"
             [routerLink]="[menuItem.path]"
             class="nav-link text-white"
@@ -138,6 +136,15 @@
             <i class="ni {{ menuItem.icon }}"></i>
             {{ menuItem.title }}
           </a>
+          <ng-template #logoutLink>
+            <a
+              (click)="logout()"
+              class="nav-link text-white"
+            >
+              <i class="ni {{ menuItem.icon }}"></i>
+              {{ menuItem.title }}
+            </a>
+          </ng-template>
         </li>
       </ul>
     </div>
