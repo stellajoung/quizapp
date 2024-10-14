@@ -1,6 +1,8 @@
 # QUIZAPP
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.10.
+A web quiz app that fetches questions and answers from [Open Trivia DB] (https://opentdb.com/). The data passed on from the API including number of questions, category, difficulty, type as well as user input gets stored in Firebase's Cloud Firestore. 
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.10. The UI was created with [Angular Bootstrap](https://ng-bootstrap.github.io/#/home) version 4 and by modifying [Argon Dashboard Angular](https://www.creative-tim.com/product/argon-dashboard-angular). 
 
 ## Development server
 
