@@ -9,7 +9,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -52,7 +51,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent,
     QuizResultComponent
   ],
   exports: [FormsModule, ReactiveFormsModule], 
